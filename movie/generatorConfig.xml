@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/movie" userId="root" password="root" />
+    <javaModelGenerator targetPackage="com.oristartech.pojo" targetProject="springboot01" />
+    <sqlMapGenerator targetPackage="com.oristartech.mapper" targetProject="springboot01" />
+    <javaClientGenerator targetPackage="com.oristartech.mapper" targetProject="springboot01" type="XMLMAPPER" />
+    <table schema="movie_order" tableName="movie_order" ></table>
+    <table schema="movie_order_ticket" tableName="movie_order_ticket" ></table>
+    <table schema="movie_ticket" tableName="movie_ticket" ></table>
+    <table schema="movie_user" tableName="movie_user" ></table>
+  </context>
+</generatorConfiguration>
