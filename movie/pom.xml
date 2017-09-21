@@ -77,4 +77,5 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
         </resources>
     </build>  
  
+     <packaging>pom</packaging>
 </project>
