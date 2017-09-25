@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>  电 影 详 情 页</title>
+  <link th:href="@{/movie.css}" rel="stylesheet" type="text/css"></link>
+  <script th:src="@{/jquery-1.11.0.min.js}"></script>
+  <script type="text/javascript">
+ $(function(){
+  $.ajax({
+		type : "get",
+		url : "http://172.23.158.102:8080/movie/4",
+		dataType : "jsonp",
+		success : function(json){
+			$("#h").html(json.name);
+			$("#m1").html(json.sight);
+			$("#m2").html(json.time);
+			$("#m3").html(json.price);
+			$("#m4").html(json.language);
+			$("#m5").html(json.type);
+			/* alert(json[0].name); */
+		},
+		error:function(){
+			alert('fail');
+		}
+	});
+  $.ajax({
+		type : "get",
+		url : "http://172.23.158.102:8080/time/4/1",
+		dataType : "jsonp",
+		success : function(data){
+			$.each(data, function(index,values){
+		   $("#t"+index).html(values);
+			});
+		},
+		error:function(){
+			alert('fail');
+		}
+	});
+  $.ajax({
+		type : "get",
+		url : "http://172.23.159.48:8080/findAllHall",
+		dataType : "jsonp",
+		success : function(data){
+			 $.each(data, function(index,values){
+				   $("#tt0").html(data.hallName);
+				   $("#ta0").html(data.seatLoc);
+				   $("#tt1").html(data.hallName);
+				   $("#ta1").html(data.seatLoc);
+				   $("#tt2").html(data.hallName);
+				   $("#ta2").html(data.seatLoc);
+				   $("#tt3").html(data.hallName);
+				   $("#ta3").html(data.seatLoc);
+					});
+		},
+		error:function(){
+			alert('fail');
+		}
+	});
+ });
+ function ticket(data){
+		var time=$.trim($("#"+data).text());
+		var id=4;
+		$.ajax({
+			type: "POST",
+			url : "http://localhost:8080/showTicket/"+id,
+			data: "time="+time,
+			success : function(data){
+				alert(data);
+			},
+			error:function(){
+				alert('fail');
+			}
+		});
+	 } 
+ </script>
+</head>
+<body>
+  <div class="header w">
+    电 影 详 情 页
+  </div>
+  <div class="info w clearfix">
+    <div class="picture">
+      <img src="/images/xiuxiudetiequan.jpg" alt="电影图片" title="羞羞的铁拳"/>
+    </div>
+    <div class="discript">
+      <h2 class="name" id="h"></h2>
+      <p><span class="dis_left">版本: </span><span class="dis_right" id="m1"></span></p>
+      <p><span class="dis_left">时长: </span><span class="dis_right" id="m2"></span></p>
+      <p><span class="dis_left">价格: </span><span class="dis_right" id="m3"></span></p>
+      <p><span class="dis_left">语言: </span><span class="dis_right" id="m4"></span></p>
+      <p><span class="dis_left">类型: </span><span class="dis_right" id="m5"></span></p>
+    </div>
+  </div>
+  <div class="content w">
+    <p class="table_name">去选择电影场次 >></p>
+    <!--action中放入你的请求连接地址-->
+      <table>
+        <tr>
+          <td>序号</td>
+          <td>厅名</td>
+          <td>座位号</td>
+          <td>播放时间</td>
+          <td>操作</td>
+        </tr>
+        <tr id="time">
+          <td >01</td>
+          <td id="tt0"></td>
+          <td id="ta0"></td>
+          <td id="t0"></td>
+          <td><a href="#" onclick="ticket('t0')">生成票</a></td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td id="tt1"></td>
+          <td id="ta1"></td>
+          <td id="t1"></td>
+          <td><a href="#" onclick="ticket('t1')">生成票</a></td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td id="tt2"></td>
+          <td id="ta2"></td>
+          <td id="t2"></td>
+          <td><a href="#" onclick="ticket('t2')">生成票</a></td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td id="tt3"></td>
+          <td id="ta3"></td>
+          <td id="t3"></td>
+          <td><a href="#" onclick="ticket('t3')">生成票</a></td>
+        </tr>
+      </table>
+  </div>
+</body>
+</html>

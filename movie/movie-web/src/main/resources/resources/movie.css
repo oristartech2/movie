@@ -1,0 +1,81 @@
+/*公共样式*/
+.w {
+  width: 1000px;
+  margin: 0 auto;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  zoom: 1;
+}
+/* 页面*/
+.header {
+      height: 50px;
+      background-color: #66d;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 50px;
+      margin-bottom: 30px;
+}
+.main {
+  background-color: #ccc;
+}
+.info .picture {
+  float: left;
+  margin-right: 30px;
+}
+.info .picture img{
+  width: 300px;
+}
+.info .discript .name {
+  color: blueviolet
+}
+.info .discript .dis_left {
+  font-weight: 700;
+}
+.table_name {
+  background-color: pink;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 20px;
+  width: 200px;
+  color: #333;
+}
+.content table {
+  font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+  width: 90%;
+  margin: 0 auto;
+}
+.content table tr,th {
+  border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.content table td {
+  border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.content .formSubmit {
+  width: 100px;
+  height: 40px;
+  background-color: indianred;
+  margin: 20px 0 50px;
+  border: 0;
+  outline-style: none;
+  border-radius: 5px;
+  float: right;
+}

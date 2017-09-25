@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="movie.css"/>
+</head>
+<body>
+  <div class="content w">
+    <p class="table_name">去选择座次 >></p>
+    <!--action中放入你的请求连接地址-->
+      <table>
+       <tr>
+          <td><a href="http://www.baidu.com" >11</a></td>
+          <td><a href="http://www.baidu.com" >12</a></td>
+          <td><a href="http://www.baidu.com" >13</a></td>
+          <td><a href="http://www.baidu.com" >14</a></td>
+        </tr>
+       <tr>
+          <td><a href="http://www.baidu.com" >21</a></td>
+          <td><a href="http://www.baidu.com" >22</a></td>
+          <td><a href="http://www.baidu.com" >23</a></td>
+          <td><a href="http://www.baidu.com" >24</a></td>
+        </tr>
+      </table>
+      <select id="select1"></select>
+	<script th:src="@{/jquery-1.11.0.min.js}"></script>
+	<script type="text/javascript">
+	$(function () {
+        var jsons =
+        {
+            'blogs': [{ 'id': 'xiaoming', 'name': '小明' }, { 'id': '2', 'name': '小明1' }, 
+                       { 'id': '3', 'name': '小明2'}]
+        };
+        $.each(jsons.blogs, function (index, e) {
+            $("#select1").append("<option value=" + e.id + ">" + e.name + "</option>");
+        });
+    });
+</script>
+  </div>
+</body>
+</html>
